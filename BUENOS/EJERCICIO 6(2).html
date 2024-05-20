@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+</head>
+<body>
+
+<form id="myform" onsubmit="return alertName();">
+  <p>Grados centígrados<input id="grados" name="grados" type="text" /></p>
+  <p>Cuantas columnas
+    <select name="opcion" id="opcion">
+        <option value="1">KELVIN</option>
+        <option value="2">FARENHEIT</option>
+    </select>
+  </p>
+  <p><input type="submit" /></p>
+</form>
+
+<div id="result"></div>
+
+<script type="text/javascript">
+function alertName() {
+  var grados = parseInt(document.forms[0].grados.value);
+  var opcion = parseInt(document.forms[0].opcion.value);
+  
+  var result = document.getElementById("result");
+  
+  switch(opcion) {
+    case 1:
+        var K=(grados + 273.15);
+      result.textContent ="EL EQUIVALENTE DE"+grados+"GRADOS CELSIUS A GRADOS KELVIN SON: "+K+" K";
+      break;
+    case 2:
+      var F = (grados * 1.8) + 32;
+      result.textContent = "EL EQUIVALENTE DE " + grados + " GRADOS CELSIUS A GRADOS FARENHEIT SON: " + F + " F";
+      break;
+    default:
+      result.textContent = "Por favor, seleccione una opción válida.";
+      break;
+  }
+  
+  return false; // Para evitar que el formulario se envíe y la página se recargue
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+<h1>JArreglos</h1>
+
+<p>Click en la opcion</p>
+
+<button onclick="Llenar()">LLENAR ARREGLO</button>
+
+<button onclick="Imprimir()">IMPRIMIR ARREGLO </button>
+
+<button onclick="Ordenar()">ORDENAR ARREGLO</button>
+<button onclick="Reversa()">REVERSEAR ARREGLO</button>
+<button onclick="Tabla()">COLOCAR EN TABLA</button>
+
+<p id="demo"></p>
+
+<script>
+var arreglo=[0,0,0,0,0,0,0,0,0,0];
+
+function Llenar() {
+
+    //document.getElementById("demo").innerHTML ="ENTRASTE A LA PRIMERA OPCION";
+    for(i=0;i<10;i++)
+    {
+        arreglo[i]=Math.floor(Math.random()*100+1);
+    }
+ 
+}
+
+function Imprimir() {
+
+    document.getElementById("demo").innerHTML ="EL CONTENIDO DEL ARREGLO <br>"+arreglo;
+
+}
+function Ordenar() {
+
+    //document.getElementById("demo").innerHTML ="ENTRASTE A LA TERCERA OPCION";
+    //arreglo=arreglo.sort();
+    arreglo=arreglo.sort(function(a,b){return a - b});//ordena el arreglo numericamente
+}
+function Reversa() {
+
+    arreglo=arreglo.reverse();//reversa 
+
+//document.getElementById("demo").innerHTML ="ENTRASTE A LA CUARTA OPCION";
+
+}
+function Tabla()
+{
+    var texto="";
+    texto=texto+"<table border=1><tr>";
+    for (i=0;i<10;i++)
+    {
+        texto=texto+"<td>"+arreglo[i]+"</td>";
+    }
+    
+    texto=texto+"</tr></table>";
+    //document.write=texto;
+    document.getElementById("demo").innerHTML=texto;
+    
+}
+</script>
+
+
+
+</body>
+
+</html>
