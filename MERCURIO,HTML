@@ -1,0 +1,33 @@
+<HTML>
+<head>
+    <title>MERCURIO</title>
+
+</head>
+<body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">  
+<center>
+    <h1>MERCURIO</h1>
+    <table>
+        <tr>
+            
+                <td align="center">
+                    <img src="mercurio.jfif"  whidth=100 height=100 alt="MERCURIO">
+                </td>
+            </tr>
+            <tr>
+                  <td align="center">
+                    <p>Mercurio es el planeta más pequeño de nuestro sistema solar. Simplemente, es un poco más grande que la Luna de la Tierra.</p> 
+                    <p>Es el planeta más cercano al Sol, pero no es realmente el más cálido. Venus es el más cálido</p>
+                    <p>Junto con Venus, la Tierra y Marte, Mercurio es uno de los planetas rocosos.</p>
+                    <p>Tiene una superficie sólida que está cubierta de cráteres. Tiene una atmósfera delgada y no tiene ninguna luna.</p> 
+            </tr>
+
+
+        </tr>
+
+    </table>
+</center>
+</body>
+
+
+
+</HTML>
