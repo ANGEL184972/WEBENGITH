@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        let intentos = 6; 
+        let palabra = "POETAS";
+
+        function dibujar() {
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+
+            // Verifica si la palabra ingresada es correcta
+            if (document.getElementById("P1").value.toUpperCase() === palabra) {
+                alert("Has adivinado la palabra correctamente.");
+                return; // Detiene la función si la palabra es correcta
+            }
+            if (intentos==0) {
+                alert("PERDISTE");
+            }
+            switch (intentos) {
+                case 6:
+                    // Dibuja la cabeza
+                    ctx.beginPath();
+                    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+                    ctx.stroke();
+                    break;
+                case 5:
+                    // Dibuja el cuerpo
+                    ctx.beginPath();
+                    ctx.moveTo(95, 90);
+                    ctx.lineTo(95, 200);
+                    ctx.stroke();
+                    break;
+                case 4:
+                    // Dibuja la mano izquierda
+                    ctx.beginPath();
+                    ctx.moveTo(95, 110);
+                    ctx.lineTo(40, 170);
+                    ctx.stroke();
+                    break;
+                case 3:
+                    // Dibuja la mano derecha
+                    ctx.beginPath();
+                    ctx.moveTo(95, 110);
+                    ctx.lineTo(150, 170);
+                    ctx.stroke();
+                    break;
+                case 2:
+                    // Dibuja la pierna izquierda
+                    ctx.beginPath();
+                    ctx.moveTo(95, 200);
+                    ctx.lineTo(40, 280);
+                    ctx.stroke();
+                    break;
+                case 1:
+                    // Dibuja la pierna derecha
+                    ctx.beginPath();
+                    ctx.moveTo(95, 200);
+                    ctx.lineTo(150, 280);
+                    ctx.stroke();
+                    break;
+                default:  if (intentos=0) {
+                alert("PERDISTE");
+                return; // Detiene la función si la palabra es correcta
+            }
+                    break;
+            }
+
+            intentos--; // Decrementa los intentos después de dibujar
+
+            // Muestra los intentos restantes
+            document.getElementById("intentos").innerText = "Intentos restantes: " + intentos;
+        }
+
+        function limpiar() {
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            intentos = 6; // Reinicia los intentos
+            document.getElementById("intentos").innerText = "Intentos restantes: " + intentos;
+        }
+    </script>
+</head>
+<body>
+    <h1>AHORCADO PARTE 1</h1>
+    <form id="Fo">
+        <p>PALABRA<input id="P1" name="P1" type="text"></p>
+    </form>
+    <p><button onclick="dibujar()">Enviar</button></p>
+    <p><button onclick="limpiar()">Limpiar</button></p>
+    <p id="intentos">Intentos restantes: 6</p> <!-- Mostrar los intentos restantes -->
+    <canvas id="myCanvas" width="400" height="400" style="border: 1px solid crimson;"></canvas>
+</body>
+</html>

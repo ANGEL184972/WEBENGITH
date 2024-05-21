@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+<div id="myPlot1" style="width:100%;max-width:700px"></div>
+<div id="myPlot2" style="width:100%;max-width:700px"></div>
+<script>
+const xArray1 = ["FISICA I", "PROGRAMACION I", "WEB I", "NUCLEO I", "MATEMATICAS I","INGLES IV"];
+const yArray1 = [55, 80, 80, 100, 70,85];
+const data1 = [{
+ x:xArray1,
+ y:yArray1,
+ type:"bar",
+ orientation:"v",
+ marker: {color:"rgba(0,0,255,0.6)"}
+}];
+
+const xArray2 = ["FISICA I", "PROGRAMACION I", "WEB I", "NUCLEO I", "MATEMATICAS I","INGLES IV"];
+const yArray2 = [55, 80, 80, 100, 70,85];
+const data2 = [{
+ x:xArray2,
+ y:yArray2,
+ type:"bar",
+ orientation:"v",
+ marker: {color:"rgba(0,0,255,0.6)"}
+}];
+
+const layout = {title:"PRIMER PARCIAL"};
+Plotly.newPlot("myPlot1", data1, layout);
+Plotly.newPlot("myPlot2", data2, layout);
+</script>
+</body>
+</html>

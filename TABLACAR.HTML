@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida del usuario</title>
+
+    <script type="text/javascript">
+        function alertName() {
+            var veces1 = parseInt(document.forms[0].veces.value);
+            var colu1 = parseInt(document.forms[0].colu.value);
+            var caracter = document.forms[0].car.value;
+
+            document.write("<center>");
+            document.write("<table style='border: 2px solid blueviolet'>");
+            for (i = 1; i <= veces1; i++) {
+                document.write("<tr style='border: 2px solid blueviolet; background-color: pink'>");
+                for (j = 1; j <= colu1; j++) {
+                    document.write("<td style='border: 2px solid blueviolet'> " + caracter + " </td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+            document.write("</center>");
+            return false;
+        }
+    </script>
+    
+</head>
+<body>
+
+<div class="form-container">
+    <form id="myform" onsubmit="return alertName();">
+        <p>¿Cuántas filas? <input id="veces" name="veces" type="text" /></p>
+        <p>¿Cuántas columnas? <input id="colu" name="colu" type="text" /></p>
+        <p>Carácter <input id="car" name="car" type="text" /></p>
+        <p><input type="submit" value="Generar" /></p>
+    </form>
+</div>
+
+</body>
+</html>

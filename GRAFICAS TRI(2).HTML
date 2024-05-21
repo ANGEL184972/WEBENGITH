@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de funciones trigonométricas</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <form id="myform" onsubmit="return alertName();">
+        <p>¿Cuál función?
+            <select name="opcion" id="opcion">
+                <option value="1">TANGENTE</option>
+                <option value="2">SENO</option>
+                <option value="3">COSENO</option>
+            </select>
+        </p>
+        <p><input type="submit" value="Generar gráfico" /></p>
+    </form>
+
+    <div id="sinPlot" style="width:100%;max-width:700px"></div>
+    <div id="cosPlot" style="width:100%;max-width:700px"></div>
+    <div id="tanPlot" style="width:100%;max-width:700px"></div>
+
+    <script>
+        function alertName() {
+            let opcion = parseInt(document.getElementById("opcion").value);
+            let inicio = parseFloat(prompt("Ingresa el inicio del rango", 0));
+            let fin = parseFloat(prompt("Ingresa el final del rango", 10));
+
+            if (inicio >= fin) {
+                alert("El inicio debe ser menor que el final.");
+                return false;
+            }
+
+            const xValues = [];
+            const yValues = [];
+
+            for (let x = inicio; x <= fin; x += 0.1) {
+                xValues.push(x);
+                switch (opcion) {
+                    case 1:
+                        yValues.push(Math.tan(x));
+                        break;
+                    case 2:
+                        yValues.push(Math.sin(x));
+                        break;
+                    case 3:
+                        yValues.push(Math.cos(x));
+                        break;
+                }
+            }
+
+            const data = [{ x: xValues, y: yValues, mode: "lines" }];
+            const layout = { title: "Gráfico de " + (opcion === 1 ? "Tangente" : opcion === 2 ? "Seno" : "Coseno") };
+
+            if (opcion === 1) {
+                Plotly.newPlot("tanPlot", data, layout);
+            } else if (opcion === 2) {
+                Plotly.newPlot("sinPlot", data, layout);
+            } else if (opcion === 3) {
+                Plotly.newPlot("cosPlot", data, layout);
+            }
+
+            return false; // Evitar que el formulario se envíe y la página se recargue
+        }
+    </script>
+</body>
+</html>
